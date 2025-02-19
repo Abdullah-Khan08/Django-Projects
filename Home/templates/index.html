@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django Server</title>
+    <style>
+       
+        .table-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        table {
+            width: 80%; 
+            border: 10px solid black;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        th, td {
+            border: 2px solid black;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>  
+    <h1> this is index page</h1>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Sr</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Age</th>
+                        <th scope="col">Can Vote</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for person in persons %}
+                    <tr>
+                        <th scope="row">{{ forloop.counter }}</th>
+                        <td>{{ person.Name }}</td>
+                        <td>{{ person.age }}</td>           
+                        <td {% if person.age < 18 %} style="background:red" {% endif %}> 
+                            {% if person.age >= 18 %}
+                            👍🏻
+                            {% else %}
+                            👎🏻
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>    
+ </table>  
+ <a href="/contact/"> Contact</a>
+ ||
+ <a href="/about/"> About</a>
+
+
+</body>
+</html>
