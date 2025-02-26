@@ -9,6 +9,7 @@ def home(request):
         {'Name':'usman','age':20},
         {'Name':'Abdulrehman','age':17}
     ]
+      
     return render(request,"index.html" ,context={'persons': persons})
 def about(request):
     return render(request,"about.html")
