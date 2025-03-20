@@ -6,4 +6,7 @@ class Receipe(models.Model):
     receipe_description=models.TextField()
     receipe_image=models.ImageField(upload_to="Receipe")
 
-
+class car_models(models.Model):
+    car_name=models.CharField(max_length=100)
+    car_description=models.TextField()
+    car_image=models.ImageField(upload_to="Receipe")
